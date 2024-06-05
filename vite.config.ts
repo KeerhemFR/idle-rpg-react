@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  envPrefix: 'IDLERPG_',
   resolve: {
     alias: [
       { find: '@', replacement: resolve('./', 'src') },
@@ -15,6 +16,7 @@ export default defineConfig({
       { find: '@interfaces', replacement: resolve('./', 'src/interfaces') },
       { find: '@test', replacement: resolve('./', 'src/test') },
       { find: '@utils', replacement: resolve('./', 'src/utils') },
+      { find: '@api', replacement: resolve('./', 'src/api') },
     ],
   },
 });
