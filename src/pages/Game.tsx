@@ -1,17 +1,25 @@
+//React import
+import { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+//Component import
 import { Monster } from '@components/Monster';
 import { Player } from '@components/Player';
-import { ROUTING } from '@contents/routing';
+//Context import
 import { GameContext } from '@store/GameContext';
-import { Link } from 'react-router-dom';
-
-import { useContext, useEffect } from 'react';
-import { GameContextType } from '@interfaces/gamecontext.types';
+//Content import
+import { ROUTING } from '@contents/routing';
+//Utils importt
 import { getMonster } from '@utils/getMonster';
+//Types import
+import { GameContextType } from '@interfaces/gamecontext.types';
 
 export const Game = () => {
   const context = useContext<GameContextType | null>(GameContext);
   const { monsterStats, setMonsterStats, multiplicator, turn } = context;
 
+  /**
+   * Trigger the getMonster function when the monsterStats in context is null
+   */
   useEffect(() => {
     if (!monsterStats) {
       getMonster(setMonsterStats, multiplicator);

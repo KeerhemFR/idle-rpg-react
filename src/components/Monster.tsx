@@ -1,6 +1,14 @@
-import { GameContext } from '@store/GameContext';
+//React import
 import { useContext, useEffect } from 'react';
+//Context import
+import { GameContext } from '@store/GameContext';
 
+/**
+ * Components handling the monster data
+ * Also manage the actions occuring when the monster die
+ *
+ * @returns {React.ReactElement} Monster card with its informations
+ */
 export const Monster = () => {
   const monsterContext = useContext(GameContext);
   const {
@@ -14,6 +22,11 @@ export const Monster = () => {
     setPlayerStats,
   } = monsterContext;
 
+  /**
+   * Unmount the component when the monster faint
+   * Will update the turn number, the multiplicator, and the player's amount of experience
+   * Then will empty the monster's data
+   */
   useEffect(() => {
     if (monsterStats.REMAINING_HP <= playerStats.ATK) {
       return () => {

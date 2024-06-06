@@ -1,8 +1,16 @@
-import { useState } from 'react';
+//React import
+import { useState, useContext, useEffect } from 'react';
+//Context import
 import { GameContext } from '@store/GameContext';
+//Utils import
 import { playerAttack } from '@utils/playerAttack';
-import { useContext, useEffect } from 'react';
 
+/**
+ * Component handling the player's data
+ * Handle the player level up when wanted amount of exp is obtained
+ *
+ * @returns
+ */
 export const Player = () => {
   const [isDisabled, setIsDisabled] = useState(false);
 
@@ -10,6 +18,10 @@ export const Player = () => {
   const { monsterStats, setMonsterStats, playerStats, setPlayerStats } =
     playerContext;
 
+  /**
+   * Handle the player's level up
+   * Will randomly increase one of it's stats by picking up in the array
+   */
   useEffect(() => {
     if (playerStats.EXP >= playerStats.NEXT_LVL) {
       const statsArray = [
@@ -53,6 +65,10 @@ export const Player = () => {
     }
   }, [playerStats.EXP]);
 
+  /**
+   * Will handle the attack button behaviour
+   * Launch the playerAttack function and wait for it to end before making the button enable again
+   */
   const handleClick = async () => {
     setIsDisabled(true);
 
@@ -62,6 +78,7 @@ export const Player = () => {
       playerStats,
       setPlayerStats
     );
+
     setIsDisabled(false);
   };
 

@@ -1,4 +1,6 @@
+//React import
 import { Link } from 'react-router-dom';
+//Content import
 import { ROUTING } from '@contents/routing';
 
 export const Homepage = () => {

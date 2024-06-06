@@ -1,9 +1,11 @@
+//React import
+import { createContext, useState } from 'react';
+//Types import
 import {
   GameContextType,
   MonsterStats,
   PlayerStats,
 } from '@interfaces/gamecontext.types';
-import { createContext, useState } from 'react';
 
 interface GameProviderType {
   children: React.ReactNode;
@@ -11,6 +13,13 @@ interface GameProviderType {
 
 export const GameContext = createContext<GameContextType | null>(null);
 
+/**
+ * Context for the application
+ * Settled context variable default value and make them accessible through the entire app
+ *
+ * @param {React.ReactNode} children all that will be included inside the context
+ * @returns {React.Provider} a provider to allow all the app to access this context data
+ */
 export const GameProvider: React.FC<GameProviderType> = ({ children }) => {
   const [turn, setTurn] = useState<number>(1);
   const [multiplicator, setMultiplicator] = useState<number>(1);

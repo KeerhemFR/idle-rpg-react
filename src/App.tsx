@@ -8,6 +8,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //Content import
 import { ROUTING } from '@contents/routing';
+//Context import
 import { GameProvider } from '@store/GameContext';
 
 function App() {
