@@ -10,24 +10,31 @@ export const Monster = () => {
     setTurn,
     multiplicator,
     setMultiplicator,
+    playerStats,
+    setPlayerStats,
   } = monsterContext;
 
   useEffect(() => {
-    if (monsterStats.REMAINING_HP <= 100) {
+    if (monsterStats.REMAINING_HP <= playerStats.ATK) {
       return () => {
         setTurn(turn + 1);
         setMultiplicator(multiplicator + 0.1);
+        setPlayerStats({
+          ...playerStats,
+          EXP: playerStats.EXP + monsterStats.EXP,
+        });
+
         setMonsterStats(null);
       };
     }
   }, [monsterStats.REMAINING_HP]);
 
   return (
-    <div className="monster-card rounded w-25 text-white">
+    <div className="monster-card rounded w-25">
       <p>{monsterStats.NAME}</p>
-      <p>{monsterStats.ATK}</p>
+      <p>ATK: {monsterStats.ATK}</p>
       <p>
-        {monsterStats.REMAINING_HP} / {monsterStats.HP}
+        HP: {monsterStats.REMAINING_HP} / {monsterStats.HP}
       </p>
     </div>
   );

@@ -11,7 +11,7 @@ export const getMonster = async (setMonsterStats, multiplicator) => {
       setMonsterStats({
         ATK: Math.round(
           (monster.strength + monster.dexterity + monster.intelligence) *
-            10 *
+            5 *
             multiplicator
         ),
         HP: Math.round(
@@ -25,12 +25,14 @@ export const getMonster = async (setMonsterStats, multiplicator) => {
             multiplicator
         ),
         EXP: Math.round(
-          monster.strength +
+          ((monster.strength +
             monster.dexterity +
             monster.intelligence +
             monster.constitution +
             monster.wisdom +
-            monster.charisma
+            monster.charisma) /
+            2) *
+            multiplicator
         ),
         NAME: monster.name,
       });

@@ -79,6 +79,13 @@ button {
   background-color: lightcoral;
 }
 
+.player-card {
+  border: 2px green solid;
+  padding: 10px;
+  text-align: center;
+  background-color: turquoise;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

@@ -19,7 +19,7 @@ export const Game = () => {
   }, [turn, monsterStats]);
 
   return (
-    <div className="position-relative d-flex justify-content-center align-items-center h-100">
+    <div className="position-relative d-flex flex-column justify-content-around align-items-center h-100">
       <div className="position-absolute top-0 end-0 m-2">
         <Link to={ROUTING.HOME}>
           <button className="btn btn-danger">X</button>
