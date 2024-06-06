@@ -8,16 +8,19 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 //Content import
 import { ROUTING } from '@contents/routing';
+import { GameProvider } from '@store/GameContext';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="screen-container">
-        <Routes>
-          <Route path={ROUTING.HOME} element={<Homepage />} />
-          <Route path={ROUTING.GAME} element={<Game />} />
-        </Routes>
-      </div>
+      <GameProvider>
+        <div className="screen-container">
+          <Routes>
+            <Route path={ROUTING.HOME} element={<Homepage />} />
+            <Route path={ROUTING.GAME} element={<Game />} />
+          </Routes>
+        </div>
+      </GameProvider>
     </BrowserRouter>
   );
 }

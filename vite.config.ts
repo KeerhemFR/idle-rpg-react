@@ -16,7 +16,7 @@ export default defineConfig({
       { find: '@interfaces', replacement: resolve('./', 'src/interfaces') },
       { find: '@test', replacement: resolve('./', 'src/test') },
       { find: '@utils', replacement: resolve('./', 'src/utils') },
-      { find: '@api', replacement: resolve('./', 'src/api') },
+      { find: '@store', replacement: resolve('./', 'src/store') },
     ],
   },
 });

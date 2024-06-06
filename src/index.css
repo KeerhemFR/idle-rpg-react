@@ -72,6 +72,13 @@ button {
   background-size: cover;
 }
 
+.monster-card {
+  border: 2px red solid;
+  padding: 10px;
+  text-align: center;
+  background-color: lightcoral;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
